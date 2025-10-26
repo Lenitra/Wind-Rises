@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 2e6cf49ae4faced43a3455211e94cdf7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/BackupTool/GBackup.cs
+  uploadId: 805610

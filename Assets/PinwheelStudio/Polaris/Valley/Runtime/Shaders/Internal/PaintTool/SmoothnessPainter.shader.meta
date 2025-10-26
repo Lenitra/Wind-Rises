@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 96ca7cdfb2d239c42b0ded3f55ceb9a2
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/Internal/PaintTool/SmoothnessPainter.shader
+  uploadId: 805610

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6e9a4232228dd4f4480b2f5292116c03
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Highland/Runtime/Scripts/SplineTool/GFoliageSpawner.cs
+  uploadId: 805610

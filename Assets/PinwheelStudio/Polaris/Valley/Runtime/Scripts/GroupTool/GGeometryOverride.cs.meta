@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6ef8358693c8d9d478a74b0d3836aaf5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/GroupTool/GGeometryOverride.cs
+  uploadId: 805610

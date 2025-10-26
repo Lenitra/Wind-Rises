@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8b79d03245341224797489db27ef44e4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/Rendering/FoliageRenderer3/GGrassRenderer3.cs
+  uploadId: 805610

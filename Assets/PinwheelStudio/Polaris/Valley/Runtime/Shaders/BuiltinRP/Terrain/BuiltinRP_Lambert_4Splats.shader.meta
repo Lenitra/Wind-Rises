@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d05d044a340c6064d87f4106e403cb3e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/BuiltinRP/Terrain/BuiltinRP_Lambert_4Splats.shader
+  uploadId: 805610

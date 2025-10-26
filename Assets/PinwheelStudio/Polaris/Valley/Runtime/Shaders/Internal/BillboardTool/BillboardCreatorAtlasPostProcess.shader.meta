@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 6f35f299f489f614fa382fea681f6e03
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/Internal/BillboardTool/BillboardCreatorAtlasPostProcess.shader
+  uploadId: 805610

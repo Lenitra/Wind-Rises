@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 08bc31ddd4e8b0e4fad8f22e1f97c611
+labels:
+- PolarisSampleMaterials
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Samples/Pinwheel Studio/Materials/Skybox/NightSky.mat
+  uploadId: 805610

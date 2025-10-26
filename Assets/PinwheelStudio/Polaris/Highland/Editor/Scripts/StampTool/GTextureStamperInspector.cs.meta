@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 4938684139cdff346a83de3306558417
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Highland/Editor/Scripts/StampTool/GTextureStamperInspector.cs
+  uploadId: 805610

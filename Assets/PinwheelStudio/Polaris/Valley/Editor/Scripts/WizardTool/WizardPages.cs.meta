@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 364818652c6e9fe4fb66dc7fe1eed5d9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Editor/Scripts/WizardTool/WizardPages.cs
+  uploadId: 805610

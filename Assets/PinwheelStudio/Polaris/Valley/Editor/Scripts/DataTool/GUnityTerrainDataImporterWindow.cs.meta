@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1a5d0ce002d0ea74785e8dfea7d3d6e0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Editor/Scripts/DataTool/GUnityTerrainDataImporterWindow.cs
+  uploadId: 805610

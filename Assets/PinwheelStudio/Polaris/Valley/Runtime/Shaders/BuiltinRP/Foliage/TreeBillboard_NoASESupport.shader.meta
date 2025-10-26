@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: aee22a69f12b82344bae380fe8570e61
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/BuiltinRP/Foliage/TreeBillboard_NoASESupport.shader
+  uploadId: 805610

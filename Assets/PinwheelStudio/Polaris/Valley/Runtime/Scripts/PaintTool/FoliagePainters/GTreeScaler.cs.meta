@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: db6e69be87ee1bf40a74abc0b5b49946
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/PaintTool/FoliagePainters/GTreeScaler.cs
+  uploadId: 805610

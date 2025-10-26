@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 99aec3143b31a574499a4c3c4868c6bc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/TextureTool/Generators/GTextureGenerationMode.cs
+  uploadId: 805610

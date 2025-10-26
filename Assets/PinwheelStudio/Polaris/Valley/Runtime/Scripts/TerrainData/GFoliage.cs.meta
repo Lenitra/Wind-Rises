@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 7b5acb73755bceb4d8263fff5b60c004
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - terrainData: {instanceID: 0}
+  - trees: {instanceID: 0}
+  - grasses: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/TerrainData/GFoliage.cs
+  uploadId: 805610

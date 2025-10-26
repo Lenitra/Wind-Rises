@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 66f9ccfb9144d5d4d884c72e1c267058
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Highland/Editor/Scripts/SplineTool/GSplineSegmentInspectorDrawer.cs
+  uploadId: 805610

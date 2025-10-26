@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8e54b1d91fbf090499aa1e288f351c90
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Highland/Runtime/Scripts/InteractiveGrass/GInteractiveGrassAgent.cs
+  uploadId: 805610

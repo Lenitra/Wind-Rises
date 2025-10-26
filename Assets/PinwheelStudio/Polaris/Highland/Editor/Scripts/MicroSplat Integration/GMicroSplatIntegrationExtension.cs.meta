@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cd7d1a9f4fbbf8b48bbe8a14015cd91b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Highland/Editor/Scripts/MicroSplat Integration/GMicroSplatIntegrationExtension.cs
+  uploadId: 805610

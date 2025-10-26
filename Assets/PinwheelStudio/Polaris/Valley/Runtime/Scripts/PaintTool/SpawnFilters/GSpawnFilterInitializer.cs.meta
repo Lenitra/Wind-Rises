@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6c2a2b5d0203f5c44a179b59888e1083
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/PaintTool/SpawnFilters/GSpawnFilterInitializer.cs
+  uploadId: 805610

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: dd6b79bd14a692943be50cc3b75ea79f
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/Internal/ErosionTool/ErosionDataView.shader
+  uploadId: 805610

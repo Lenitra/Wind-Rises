@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 26c129688ca61b84eb58b46bd861463e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/Internal/PaintTool/PainterCursorProjector.shader
+  uploadId: 805610

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 45f7d1aa5e9d58743aec839bd3751783
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Editor/Shaders/Sample4Splats4Normals.asset
+  uploadId: 805610

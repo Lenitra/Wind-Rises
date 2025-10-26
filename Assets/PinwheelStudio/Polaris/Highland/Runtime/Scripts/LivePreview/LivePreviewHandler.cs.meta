@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1477765fb5531af4f812789e6f140a47
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Highland/Runtime/Scripts/LivePreview/LivePreviewHandler.cs
+  uploadId: 805610

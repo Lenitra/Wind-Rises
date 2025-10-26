@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 039ce3f92ca06de47901a03a879ffec3
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/BuiltinRP/Terrain/BuiltinRP_PBR_VertexColor.shader
+  uploadId: 805610

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 6be8cd4531afb7344a29905068331f1e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/Internal/Utilities/DrawTextureArraySlice.shader
+  uploadId: 805610

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 477f6433bcaf6d54287a4619712eb326
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Highland/Runtime/Scripts/SplineTool/GObjectRemover.cs
+  uploadId: 805610

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 70127249b2641354c9a6e991b9b46b70
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Polaris Extension - URP Support/Shaders/ShaderGraph/Terrain/URP_GradientLookup_SG.shadergraph
+  uploadId: 805610

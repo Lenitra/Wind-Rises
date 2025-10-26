@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d296561e7681f1344927697cfbae9580
+labels:
+- PolarisSampleMaterials
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Samples/Distant Lands/Materials/Wood
+    1.mat
+  uploadId: 805610

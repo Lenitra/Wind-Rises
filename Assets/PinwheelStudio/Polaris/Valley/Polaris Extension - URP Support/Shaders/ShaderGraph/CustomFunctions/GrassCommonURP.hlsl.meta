@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 47eb800a41ee8a04596439982f5099c9
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Polaris Extension - URP Support/Shaders/ShaderGraph/CustomFunctions/GrassCommonURP.hlsl
+  uploadId: 805610

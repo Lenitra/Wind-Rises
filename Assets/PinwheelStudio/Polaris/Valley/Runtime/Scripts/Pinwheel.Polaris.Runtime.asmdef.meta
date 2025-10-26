@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9c184a1e5cc20654384071dfebc106ed
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Scripts/Pinwheel.Polaris.Runtime.asmdef
+  uploadId: 805610

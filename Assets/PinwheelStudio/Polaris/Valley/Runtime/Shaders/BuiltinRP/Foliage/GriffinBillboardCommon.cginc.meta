@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 95f404c2840f23b49bca7fd2b1bae724
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 339980
+  packageName: Polaris Highland - Low Poly Terrain Tool
+  packageVersion: 1.0
+  assetPath: Assets/PinwheelStudio/Polaris/Valley/Runtime/Shaders/BuiltinRP/Foliage/GriffinBillboardCommon.cginc
+  uploadId: 805610
