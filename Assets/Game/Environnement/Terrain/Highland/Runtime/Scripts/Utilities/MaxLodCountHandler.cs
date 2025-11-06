@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using System;
 
+#if UNITY_EDITOR
 namespace Pinwheel.Griffin
 {
     [InitializeOnLoad]
@@ -22,4 +23,5 @@ namespace Pinwheel.Griffin
         }
     }
 }
+#endif
 #endif

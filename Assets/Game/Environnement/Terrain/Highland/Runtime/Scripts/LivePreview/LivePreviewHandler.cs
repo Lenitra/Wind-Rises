@@ -6,6 +6,7 @@ using UnityEditor;
 using System;
 using UnityEngine.Rendering;
 
+#if UNITY_EDITOR
 namespace Pinwheel.Griffin
 {
     [InitializeOnLoad]
@@ -683,4 +684,5 @@ namespace Pinwheel.Griffin
         }
     }
 }
+#endif
 #endif
