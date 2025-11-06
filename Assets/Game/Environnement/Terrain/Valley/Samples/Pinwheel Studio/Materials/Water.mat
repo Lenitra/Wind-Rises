@@ -166,7 +166,7 @@ Material:
     - _RippleSpeed: 0
     - _SampleGI: 0
     - _Shininess: 0
-    - _ShorelineFoamStrength: 1
+    - _ShorelineFoamStrength: 1.99
     - _Smoothness: 0.74
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
@@ -186,10 +186,10 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 0.41037738, g: 1, b: 0.99416465, a: 0.34117648}
-    - _Color: {r: 0.28792444, g: 0.38623586, b: 0.41132066, a: 0.39607844}
+    - _Color: {r: 0.21383642, g: 0.38089618, b: 0.42767292, a: 0.9137255}
     - _DepthColor: {r: 0.049661793, g: 0.059422784, b: 0.09433961, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 2.4622889, g: 2.4622889, b: 2.4622889, a: 1}
+    - _FoamColor: {r: 1.4980394, g: 1.4980394, b: 1.4980394, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Specular: {r: 0.0058925566, g: 0.0058925566, b: 0.0058925566, a: 1}
     - _WaveDirection: {r: 0, g: 0, b: 0, a: 0}
