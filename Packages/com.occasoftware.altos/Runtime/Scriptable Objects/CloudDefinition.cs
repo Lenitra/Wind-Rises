@@ -144,7 +144,6 @@ namespace OccaSoftware.Altos.Runtime
             highAltCloudiness = RoundTo2Decimals(highAltCloudiness);
 
             ambientExposure = Mathf.Max(ambientExposure, 0);
-            cloudLayerHeight = Mathf.Max(cloudLayerHeight, 0);
 
             distantCoverageDepth = Mathf.Min(cloudFadeDistance, distantCoverageDepth);
         }

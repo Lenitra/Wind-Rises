@@ -20,9 +20,9 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.033882357, g: 0.047058824, b: 0.11105883, a: 0.48000002}
-  m_AmbientEquatorColor: {r: 0.23152941, g: 0.28800002, b: 0.3256471, a: 0.48000002}
-  m_AmbientGroundColor: {r: 0.026352942, g: 0.022588236, b: 0.01882353, a: 0.48000002}
+  m_AmbientSkyColor: {r: 0.031058826, g: 0.043137256, b: 0.10180392, a: 0.44}
+  m_AmbientEquatorColor: {r: 0.21223529, g: 0.264, b: 0.2985098, a: 0.44}
+  m_AmbientGroundColor: {r: 0.024156863, g: 0.020705882, b: 0.017254902, a: 0.44}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -203,7 +203,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 59357181}
   lodGroupComponent: {fileID: 59357180}
   index: {x: 0, y: 1}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 0}
   - {fileID: 468796240}
@@ -217,8 +220,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59357178}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 2000, y: 675.4657, z: 6000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 202.40291, y: 67.913864, z: 5999.9365}
+  m_Size: 4009.1953
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -552,7 +555,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 183688935}
   lodGroupComponent: {fileID: 183688934}
   index: {x: 2, y: 3}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 603364292}
   - {fileID: 814369940}
@@ -566,8 +572,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183688932}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 10000, y: 1104.1998, z: 14000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1000.1007, y: 110.3549, z: 14000.184}
+  m_Size: 4009.6133
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -709,7 +715,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 207471583}
   lodGroupComponent: {fileID: 207471582}
   index: {x: 3, y: 3}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 183688933}
   - {fileID: 1672581377}
@@ -723,8 +732,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207471580}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 14000, y: 812.5932, z: 14000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1399.825, y: 80.42375, z: 14000.095}
+  m_Size: 4009.1836
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -866,7 +875,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 235123705}
   lodGroupComponent: {fileID: 235123704}
   index: {x: 3, y: 0}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1161418425}
   - {fileID: 2020732411}
@@ -880,8 +892,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235123702}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 14000, y: 905.8819, z: 2000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1400.0466, y: 90.649666, z: 2002.4414}
+  m_Size: 4004.8828
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -1071,8 +1083,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10325573, y: -0.08781017, z: 0.009151749, w: 0.990729}
-  m_LocalPosition: {x: 6327.21, y: 1550.618, z: 2037.4}
+  m_LocalRotation: {x: -0.042645965, y: 0.8124793, z: 0.059905984, w: 0.5783338}
+  m_LocalPosition: {x: 1026.385, y: 72.938835, z: 1118.0398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1136,10 +1148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowCam
   target: {fileID: 954297270}
-  distance: 1
-  height: 0.2
-  positionLerpSpeed: 0.6
-  rotationLerpSpeed: 0.3
+  offset: {x: 0, y: 0, z: -1}
+  positionSmoothSpeed: 0.8
+  rotationSmoothSpeed: 0.1
+  lookAtTarget: 1
 --- !u!1 &376546559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,7 +1191,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 376546562}
   lodGroupComponent: {fileID: 376546561}
   index: {x: 4, y: 0}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 235123703}
   - {fileID: 1937143899}
@@ -1193,8 +1208,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376546559}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 18000, y: 903.45746, z: 2000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1797.8405, y: 90.649666, z: 2002.4344}
+  m_Size: 4004.869
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -1324,7 +1339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 420604225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0.000000061817246, z: -0.000000061817246, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: -0.00000003161014, z: -0.00000003161014, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1671,7 +1686,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 468796242}
   lodGroupComponent: {fileID: 468796241}
   index: {x: 0, y: 2}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 0}
   - {fileID: 1440274160}
@@ -1685,8 +1703,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468796239}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 2000, y: 1009.53723, z: 10000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 202.45341, y: 101.29927, z: 10000.039}
+  m_Size: 4009.8672
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -1843,7 +1861,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 514460083}
   lodGroupComponent: {fileID: 514460082}
   index: {x: 4, y: 4}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1672581377}
   - {fileID: 0}
@@ -1857,8 +1878,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514460079}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 18000, y: 408.3973, z: 18000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1797.5525, y: 41.421947, z: 17997.613}
+  m_Size: 4004.7734
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -1958,6 +1979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 1665764490504546247, guid: b039cf7d98da0a14ba9678bafd208f28, type: 3}
+      propertyPath: m_Layer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5089869415024765002, guid: b039cf7d98da0a14ba9678bafd208f28, type: 3}
       propertyPath: m_LocalScale.x
       value: 2200.4
@@ -1972,15 +1997,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089869415024765002, guid: b039cf7d98da0a14ba9678bafd208f28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10109
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5089869415024765002, guid: b039cf7d98da0a14ba9678bafd208f28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2754.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5089869415024765002, guid: b039cf7d98da0a14ba9678bafd208f28, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10158
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5089869415024765002, guid: b039cf7d98da0a14ba9678bafd208f28, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2063,7 +2088,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 569415900}
   lodGroupComponent: {fileID: 569415899}
   index: {x: 1, y: 4}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1862849702}
   - {fileID: 0}
@@ -2077,8 +2105,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569415897}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 6000, y: 833.3681, z: 18000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 600.0596, y: 82.94789, z: 17997.545}
+  m_Size: 4004.9102
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -2220,7 +2248,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 603364294}
   lodGroupComponent: {fileID: 603364293}
   index: {x: 1, y: 3}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1440274160}
   - {fileID: 569415898}
@@ -2234,8 +2265,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603364291}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 6000, y: 730.005, z: 14000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 599.88696, y: 74.699326, z: 13999.961}
+  m_Size: 4009.8164
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -2443,7 +2474,7 @@ Transform:
   m_GameObject: {fileID: 645008906}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: -1288, z: 610}
+  m_LocalPosition: {x: 0, y: 1688.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2474,7 +2505,7 @@ MonoBehaviour:
   groupId: 0
   autoConnect: 1
   geometryVersion: 3000.03
-  lastPosition: {x: 0, y: 1717, z: 0}
+  lastPosition: {x: 0, y: 1688.04, z: 0}
 --- !u!1 &707126329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,7 +2819,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 794933558}
   lodGroupComponent: {fileID: 794933557}
   index: {x: 1, y: 2}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 468796240}
   - {fileID: 603364292}
@@ -2802,8 +2836,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794933555}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 6000, y: 818.94226, z: 10000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 600.3119, y: 81.96941, z: 9999.881}
+  m_Size: 4009.2266
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -2945,7 +2979,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 814369942}
   lodGroupComponent: {fileID: 814369941}
   index: {x: 2, y: 4}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 569415898}
   - {fileID: 0}
@@ -2959,8 +2996,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814369939}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 10000, y: 1128.9358, z: 18000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 999.841, y: 113.32423, z: 17997.547}
+  m_Size: 4004.9062
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -3137,7 +3174,7 @@ Transform:
   m_GameObject: {fileID: 864102824}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12, y: 3005, z: -610}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3175,7 +3212,7 @@ Transform:
   m_GameObject: {fileID: 954297269}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9703, y: 3045, z: 6162}
+  m_LocalPosition: {x: 1027, y: 73, z: 1118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3196,10 +3233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaneControler
   acceleration: 15
   deceleration: 10
-  maxSpeed: 100
+  maxSpeed: 50
   minSpeed: 5
   gravityInfluence: 10
-  maxAltitude: 100000
+  maxAltitude: 400
   altitudeSlowdownRate: 1
   altitudeDecelerationFactor: 0.1
   altitudePitchDownFactor: 5
@@ -3437,7 +3474,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1161418427}
   lodGroupComponent: {fileID: 1161418426}
   index: {x: 2, y: 0}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1690392047}
   - {fileID: 1187759142}
@@ -3451,8 +3491,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161418424}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 10000, y: 901.1045, z: 2000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1000.19385, y: 89.449165, z: 2002.4955}
+  m_Size: 4004.991
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -3594,7 +3634,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1187759144}
   lodGroupComponent: {fileID: 1187759143}
   index: {x: 2, y: 1}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1515336822}
   - {fileID: 1299027609}
@@ -3608,8 +3651,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187759141}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 10000, y: 682.012, z: 6000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1000.15155, y: 68.21473, z: 5999.879}
+  m_Size: 4009.5469
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -3795,7 +3838,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1286201000}
   lodGroupComponent: {fileID: 1286200999}
   index: {x: 4, y: 3}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 207471581}
   - {fileID: 514460081}
@@ -3809,8 +3855,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286200997}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 18000, y: 385.44516, z: 14000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1797.5197, y: 38.403194, z: 14000.1}
+  m_Size: 4009.7832
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -3952,7 +3998,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1299027611}
   lodGroupComponent: {fileID: 1299027610}
   index: {x: 2, y: 2}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 794933556}
   - {fileID: 183688933}
@@ -3966,8 +4015,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299027608}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 10000, y: 770.0582, z: 10000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 999.9807, y: 78.83434, z: 10000.123}
+  m_Size: 4009.4922
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -4102,13 +4151,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376147858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0.000000030908623, z: -0.000000030908623, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalRotation: {x: 0.6781055, y: 0.2004319, z: 0.26240316, w: 0.65661603}
+  m_LocalPosition: {x: -3.095459, y: 3.9266357, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 74898107}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 88.7, y: 0, z: 0}
 --- !u!114 &1376147860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4149,7 +4198,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 0.9308176, g: 0.8560567, b: 0.74055606, a: 1}
-  m_Intensity: 1.5
+  m_Intensity: 1.4407638
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4192,7 +4241,7 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6500
+  m_ColorTemperature: 6052.7104
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -4297,14 +4346,14 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   lightingColorMask: {r: 0.9308176, g: 0.8560567, b: 0.74055606, a: 1}
-  positionRelative: {x: 0, y: 5, z: 0}
+  positionRelative: {x: -3.095459, y: 3.9266357, z: 0}
   sortOrder: 5
-  orbitOffset: 0
+  orbitOffset: 38.25
   orientation: 0
   tilt: 0
   inclination: 0
   positionIsStatic: 0
-  direction: {x: 0, y: 1, z: 0}
+  direction: {x: -0.61908764, y: 0.7853219, z: 0}
   falloffCurve:
     serializedVersion: 2
     m_Curve:
@@ -4434,7 +4483,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1440274162}
   lodGroupComponent: {fileID: 1440274161}
   index: {x: 0, y: 3}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 0}
   - {fileID: 1862849702}
@@ -4448,8 +4500,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440274159}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 2000, y: 1032.4655, z: 14000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 202.30571, y: 103.484375, z: 13999.859}
+  m_Size: 4009.6582
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -4726,7 +4778,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1515336824}
   lodGroupComponent: {fileID: 1515336823}
   index: {x: 1, y: 1}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 59357179}
   - {fileID: 794933556}
@@ -4740,8 +4795,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515336821}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 6000, y: 809.5073, z: 6000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 599.9955, y: 80.894424, z: 6000.0825}
+  m_Size: 4009.8174
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -5002,7 +5057,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1618606532}
   lodGroupComponent: {fileID: 1618606531}
   index: {x: 3, y: 2}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1299027609}
   - {fileID: 207471581}
@@ -5016,8 +5074,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618606529}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 14000, y: 1832.5353, z: 10000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1400.001, y: 183.77652, z: 10000}
+  m_Size: 4009.8906
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -5333,7 +5391,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1672581379}
   lodGroupComponent: {fileID: 1672581378}
   index: {x: 3, y: 4}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 814369940}
   - {fileID: 0}
@@ -5347,8 +5408,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672581376}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 14000, y: 887.0603, z: 18000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1399.9846, y: 89.53012, z: 17997.604}
+  m_Size: 4004.793
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -5490,7 +5551,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1690392049}
   lodGroupComponent: {fileID: 1690392048}
   index: {x: 1, y: 0}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1840966148}
   - {fileID: 1515336822}
@@ -5504,8 +5568,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690392046}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 6000, y: 593.37, z: 2000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 599.76404, y: 59.33412, z: 2002.3433}
+  m_Size: 4004.6865
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -5647,7 +5711,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1840966150}
   lodGroupComponent: {fileID: 1840966149}
   index: {x: 0, y: 0}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 0}
   - {fileID: 59357179}
@@ -5661,8 +5728,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840966147}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 2000, y: 687.2941, z: 2000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 202.49434, y: 68.96774, z: 2002.4839}
+  m_Size: 4004.9678
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -5804,7 +5871,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1862849704}
   lodGroupComponent: {fileID: 1862849703}
   index: {x: 0, y: 4}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 0}
   - {fileID: 0}
@@ -5818,8 +5888,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862849701}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 2000, y: 824.1075, z: 18000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 202.47963, y: 82.06789, z: 17997.602}
+  m_Size: 4004.7969
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -5961,7 +6031,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 1937143901}
   lodGroupComponent: {fileID: 1937143900}
   index: {x: 4, y: 1}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 2020732411}
   - {fileID: 2075459438}
@@ -5975,8 +6048,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937143898}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 18000, y: 1095.0769, z: 6000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1797.5012, y: 109.643486, z: 5999.9883}
+  m_Size: 4009.9395
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -6118,7 +6191,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 2020732413}
   lodGroupComponent: {fileID: 2020732412}
   index: {x: 3, y: 1}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1187759142}
   - {fileID: 1618606530}
@@ -6132,8 +6208,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020732410}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 14000, y: 1877.2872, z: 6000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1399.9506, y: 187.20293, z: 6000.0146}
+  m_Size: 4009.8535
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
@@ -6275,7 +6351,10 @@ MonoBehaviour:
   meshColliderComponent: {fileID: 2075459440}
   lodGroupComponent: {fileID: 2075459439}
   index: {x: 4, y: 2}
-  chunkLowerLOD: []
+  chunkLowerLOD:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   neighborChunks:
   - {fileID: 1618606530}
   - {fileID: 1286200998}
@@ -6289,8 +6368,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075459437}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 18000, y: 1044.4324, z: 10000}
-  m_Size: 4000
+  m_LocalReferencePoint: {x: 1797.5161, y: 104.51336, z: 10000.005}
+  m_Size: 4009.3398
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
