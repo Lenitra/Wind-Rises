@@ -1,134 +1,227 @@
-# ✈️ Wind Rises - Code Architecture
+# ✈️ Wind Rises - Architecture du Code
 
-## Overview
+## Vue d'ensemble
 
-Wind Rises is a cozy flight simulator built with a modular, event-driven architecture. The codebase is organized into 5 independent systems that communicate through a central **EventBus**, ensuring loose coupling and high maintainability.
+Wind Rises est un jeu d'avion open world cozy construit avec une architecture modulaire et événementielle. Le code est organisé en 6 systèmes indépendants qui communiquent via un **EventBus** central, garantissant un faible couplage et une maintenabilité élevée.
 
-## Architecture Principles
+## Principes d'architecture
 
-- **Separation of Concerns**: Each module has a single, well-defined responsibility
-- **Event-Driven Communication**: Systems communicate exclusively through events, avoiding direct dependencies
-- **Modularity**: Systems can be developed, tested, and modified independently
-- **Scalability**: Easy to add new features without affecting existing code
+- **Séparation des responsabilités** : Chaque module a une responsabilité unique et bien définie
+- **Communication événementielle** : Les systèmes communiquent exclusivement par événements, évitant les dépendances directes
+- **Modularité** : Les systèmes peuvent être développés, testés et modifiés indépendamment
+- **Scalabilité** : Facilité d'ajout de nouvelles fonctionnalités sans affecter le code existant
 
-## System Overview
+## Vue d'ensemble des systèmes
 
-| System | Responsibility | Key Components |
-|--------|---------------|----------------|
-| **Core** | Central coordination and event management | GameManager, EventBus |
-| **Flight** | Aircraft controls and physics simulation | PlaneInput, FlightController, PlaneData |
-| **Camera** | Dynamic camera system following the plane | CameraFollow |
-| **Environment** | Weather, time of day, and atmospheric effects | WeatherManager, TimeOfDay |
-| **UI** | Heads-up display and user interface | UIManager, SpeedUI, AltitudeUI |
+| Système         | Responsabilité                                  | Composants clés                                    |
+| --------------- | ----------------------------------------------- | -------------------------------------------------- |
+| **Core**        | Coordination centrale et gestion des événements | GameManager, EventBus                              |
+| **Flight**      | Contrôles de l'avion et simulation physique     | PlaneInput, FlightController, PlaneData            |
+| **Camera**      | Système de caméra dynamique suivant l'avion     | CameraFollow                                       |
+| **Environment** | Météo, cycle jour/nuit et effets atmosphériques | WeatherManager, TimeOfDay                          |
+| **Gameplay**    | Gestion des défis, collectibles et événements   | GameplayManager, Collectible, RaceChallenge        |
+| **UI**          | Affichage tête haute et interface utilisateur   | UIManager, SpeedUI, AltitudeUI, GameplayUI         |
 
-## Project Structure
+## Structure du projet
 
 ```
 Scripts/
 ├─ Core/
-│  ├─ GameManager.cs        # Main game controller
-│  └─ EventBus.cs           # Event system for inter-module communication
+│  ├─ GameManager.cs        # Contrôleur principal du jeu
+│  └─ EventBus.cs           # Système d'événements pour la communication inter-modules
 │
 ├─ Flight/
-│  ├─ PlaneInput.cs         # Input handling (keyboard, controller, etc.)
-│  ├─ FlightController.cs   # Physics simulation and flight dynamics
-│  └─ PlaneData.cs          # Aircraft configuration and parameters
+│  ├─ PlaneInput.cs         # Gestion des entrées (clavier, manette, etc.)
+│  ├─ FlightController.cs   # Simulation physique et dynamique de vol
+│  └─ PlaneData.cs          # Configuration et paramètres de l'avion
 │
 ├─ Camera/
-│  └─ CameraFollow.cs       # Smooth camera tracking system
+│  └─ CameraFollow.cs       # Système de suivi de caméra fluide
 │
 ├─ Environment/
-│  ├─ WeatherManager.cs     # Weather system and conditions
-│  └─ TimeOfDay.cs          # Day/night cycle and lighting
+│  ├─ WeatherManager.cs     # Système météo et conditions
+│  └─ TimeOfDay.cs          # Cycle jour/nuit et éclairage
+│
+├─ Gameplay/
+│  ├─ GameplayManager.cs    # Gestionnaire central des défis
+│  ├─ GameplayData.cs       # Données et configuration des défis
+│  ├─ Collectibles/
+│  │  ├─ Collectible.cs     # Classe de base pour les collectibles
+│  │  ├─ CollectibleTrigger.cs  # Détection de collecte
+│  │  └─ CollectibleSpawner.cs  # Placement des collectibles
+│  ├─ Races/
+│  │  ├─ RaceChallenge.cs   # Logique de course
+│  │  ├─ Checkpoint.cs      # Points de passage
+│  │  └─ RaceTimer.cs       # Chronométrage
+│  └─ Events/
+│     ├─ WorldEvent.cs      # Événements mondiaux
+│     └─ EventTrigger.cs    # Déclencheurs d'événements
 │
 └─ UI/
-   ├─ UIManager.cs          # UI coordination
-   ├─ SpeedUI.cs            # Speed indicator display
-   └─ AltitudeUI.cs         # Altitude indicator display
+   ├─ UIManager.cs          # Coordination de l'interface
+   ├─ SpeedUI.cs            # Affichage de l'indicateur de vitesse
+   ├─ AltitudeUI.cs         # Affichage de l'indicateur d'altitude
+   └─ GameplayUI.cs         # Interface des défis (objectifs, progression)
 ```
 
-## Data Flow
+## Flux de données
 
 ```
-User Input
+Entrée utilisateur
     ↓
 PlaneInput
     ↓
-FlightController
+FlightController ──→ EventBus ──→ GameplayManager (PositionUpdated, SpeedChanged)
+    ↓                    ↓
+    ↓                    ├──→ UI (SpeedChanged, AltitudeChanged, GameplayProgress)
+    ↓                    └──→ CameraFollow
     ↓
-EventBus ──→ UI (SpeedChanged, AltitudeChanged)
+Collectible/Checkpoint (détection de collision)
     ↓
-CameraFollow
+EventBus (CollectibleCollected, CheckpointReached)
+    ↓
+GameplayManager → EventBus → UI
 ```
 
-## Core Systems
+## Systèmes principaux
 
-### Flight System
+### Système de vol (Flight)
 
-Handles all aircraft-related functionality:
+Gère toutes les fonctionnalités liées à l'avion :
 
-- **PlaneInput**: Captures and processes player input from various sources
-- **FlightController**: Implements realistic flight physics and dynamics
-- **PlaneData**: Stores aircraft specifications (max speed, turn rate, etc.)
+- **PlaneInput** : Capture et traite les entrées du joueur depuis diverses sources
+- **FlightController** : Implémente la physique et la dynamique de vol réaliste
+- **PlaneData** : Stocke les spécifications de l'avion (vitesse max, taux de virage, etc.)
 
-### EventBus System
+### Système EventBus
 
-Central nervous system of the application:
+Système nerveux central de l'application :
 
-- Enables decoupled communication between modules
-- Events are strongly-typed and immutable
-- Common events:
-  - `SpeedChanged`: Fired when aircraft speed changes
-  - `AltitudeChanged`: Fired when aircraft altitude changes
-  - `PositionUpdated`: Fired for camera tracking
+- Permet une communication découplée entre les modules
+- Les événements sont fortement typés et immuables
+- Événements courants :
+  - `SpeedChanged` : Déclenché quand la vitesse de l'avion change
+  - `AltitudeChanged` : Déclenché quand l'altitude de l'avion change
+  - `PositionUpdated` : Déclenché pour le suivi de la caméra
+  - `CollectibleCollected` : Déclenché lors de la collecte d'un objet
+  - `CheckpointReached` : Déclenché au passage d'un checkpoint
+  - `ChallengeStarted` / `ChallengeCompleted` : Début et fin d'un défi
+  - `RaceFinished` : Fin d'une course avec le temps
+  - `EventTriggered` : Événement mondial déclenché
 
-### Camera System
+### Système de caméra (Camera)
 
-Provides cinematic camera experience:
+Offre une expérience cinématographique :
 
-- Smooth following with configurable lag
-- Responds to plane position/rotation via EventBus
-- No direct reference to plane object
+- Suivi fluide avec décalage configurable
+- Répond à la position/orientation de l'avion via EventBus
+- Aucune référence directe à l'objet avion
 
-### Environment System
+### Système d'environnement (Environment)
 
-Creates atmospheric immersion:
+Crée l'immersion atmosphérique :
 
-- Dynamic weather conditions
-- Day/night cycle with realistic lighting transitions
-- Environmental audio and visual effects
+- Conditions météorologiques dynamiques
+- Cycle jour/nuit avec transitions d'éclairage réalistes
+- Effets audio et visuels environnementaux
 
-### UI System
+### Système de gameplay (Gameplay)
 
-Displays flight information:
+Gère toute la logique de gameplay et des défis :
 
-- Listens to EventBus for real-time updates
-- HUD elements update independently
-- Clean separation from game logic
+- **GameplayManager** :
+  - Coordonne tous les défis actifs
+  - Écoute les événements de collecte/checkpoints via EventBus
+  - Gère la progression et la complétion des défis
+  - Émet des événements pour notifier l'UI
 
-## Development Guidelines
+- **Collectibles** :
+  - `Collectible.cs` : Classe de base (position, type, récompense)
+  - `CollectibleTrigger.cs` : Détecte la collision avec l'avion et émet `CollectibleCollected`
+  - `CollectibleSpawner.cs` : Place les collectibles dans le monde
 
-### Adding New Features
+- **Races** :
+  - `RaceChallenge.cs` : Logique de course (démarrage, validation du parcours)
+  - `Checkpoint.cs` : Valide le passage et émet `CheckpointReached`
+  - `RaceTimer.cs` : Chronomètre et gestion du temps
 
-1. Identify which system the feature belongs to
-2. Create events for any data that needs to be shared
-3. Use EventBus for all cross-system communication
-4. Keep systems independent
+- **Events** :
+  - `WorldEvent.cs` : Événements scriptés (apparition d'objets, changements météo)
+  - `EventTrigger.cs` : Zones déclencheuses basées sur la position de l'avion
 
-### Event Naming Convention
+**Principe clé** : Le système Gameplay ne référence jamais directement l'avion. Il écoute les événements `PositionUpdated`, `SpeedChanged` pour détecter les conditions de défi.
 
-- Use past tense for events: `SpeedChanged`, `LandingCompleted`
-- Be specific: `EngineStarted` instead of `StateChanged`
+### Système d'interface (UI)
 
-### Code Organization
+Affiche les informations de vol et de défis :
 
-- One class per file
-- Keep scripts focused on a single responsibility
-- Use namespaces to organize related classes
+- Écoute l'EventBus pour des mises à jour en temps réel
+- Les éléments HUD se mettent à jour indépendamment
+- **GameplayUI** : Affiche les objectifs actifs, la progression, les notifications
+- Séparation nette avec la logique de jeu
 
-## Future Enhancements
+## Lignes directrices de développement
 
-- **Audio System**: Engine sounds, wind effects
-- **Mission System**: Objectives and waypoints
-- **Save System**: Player progress and settings
-- **Customization**: Aircraft skins and modifications
+### Ajouter de nouvelles fonctionnalités
+
+1. Identifier à quel système appartient la fonctionnalité
+2. Créer des événements pour toute donnée devant être partagée
+3. Utiliser l'EventBus pour toute communication inter-système
+4. Garder les systèmes indépendants
+
+### Convention de nommage des événements
+
+- Utiliser le passé composé : `SpeedChanged`, `LandingCompleted`
+- Être spécifique : `EngineStarted` plutôt que `StateChanged`
+
+### Organisation du code
+
+- Une classe par fichier
+- Garder les scripts focalisés sur une seule responsabilité
+- Utiliser des namespaces pour organiser les classes liées
+
+## Exemple d'implémentation : Course avec checkpoints
+
+```
+1. L'avion vole et émet PositionUpdated via EventBus
+2. Checkpoint écoute PositionUpdated, détecte la proximité
+3. Checkpoint émet CheckpointReached(checkpointId, timestamp)
+4. RaceChallenge écoute CheckpointReached
+   - Valide l'ordre des checkpoints
+   - Si dernier checkpoint → émet RaceFinished(totalTime)
+5. GameplayManager écoute RaceFinished
+   - Met à jour la progression
+   - Émet GameplayCompleted
+6. UI écoute GameplayCompleted et affiche la victoire
+```
+
+## Points importants pour les défis
+
+### Détection de collision/proximité
+
+Les `Collectible` et `Checkpoint` utilisent :
+- **Trigger Colliders** sur les GameObjects dans le monde
+- **OnTriggerEnter** détecte l'avion (vérifie le tag "Player")
+- Émet immédiatement un événement via EventBus
+
+### Gestion de la progression
+
+Le `GameplayManager` maintient :
+- Liste des défis actifs
+- État de progression de chaque défi
+- Sauvegarde automatique via événements
+
+### Spawn dynamique
+
+Le `CollectibleSpawner` peut :
+- Placer des collectibles à des positions fixes (niveau design)
+- Générer procéduralement des collectibles
+- Réagir aux événements météo pour modifier le placement
+
+## Améliorations futures
+
+- **Système audio** : Sons de moteur, effets de vent, notification de défi
+- **Système de sauvegarde** : Progression des défis et statistiques
+- **Personnalisation** : Apparences d'avion et modifications
+- **Leaderboards** : Meilleurs temps de course
+- **Mission narrative** : Chaînes de défis avec histoire
