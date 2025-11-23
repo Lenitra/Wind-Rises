@@ -49,9 +49,9 @@ namespace WindRises.Flight
             if (Keyboard.current != null)
             {
                 if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
-                    value += 1f;  // A = roulis vers la gauche (positif)
+                    value -= 1f;  // A = roulis vers la gauche (positif)
                 if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
-                    value -= 1f;  // D = roulis vers la droite (négatif)
+                    value += 1f;  // D = roulis vers la droite (négatif)
             }
 
             // Gamepad
