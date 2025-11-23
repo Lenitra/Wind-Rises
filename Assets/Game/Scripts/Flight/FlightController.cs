@@ -38,8 +38,46 @@ namespace WindRises.Flight
         private void FixedUpdate()
         {
             HandleSpeed();
+            HandleGravity();
+            HandleDrag();
             HandleRotation();
             ApplyMovement();
+        }
+
+        private void OnGUI()
+        {
+            if (!showDebugInfo)
+                return;
+
+            GUILayout.BeginArea(new Rect(10, 10, 310, 150));
+            GUI.Box(new Rect(0, 0, 310, 150), "");
+
+            GUILayout.Label("=== FLIGHT DEBUG ===");
+
+            // Vitesse
+            GUILayout.Label($"Speed: {currentSpeed:F1} m/s ({currentSpeed * 3.6f:F0} km/h)");
+
+            // Throttle
+            GUILayout.Label($"Throttle: {input.Throttle:F2}");
+
+            // Roll
+            float currentRoll = transform.eulerAngles.z;
+            if (currentRoll > 180f) currentRoll -= 360f;
+            GUILayout.Label($"Roll: {currentRoll:F1}°");
+
+            // Pitch
+            float currentPitch = transform.eulerAngles.x;
+            if (currentPitch > 180f) currentPitch -= 360f;
+            GUILayout.Label($"Pitch: {currentPitch:F1}°");
+
+            // Yaw
+            float currentYaw = transform.eulerAngles.y;
+            GUILayout.Label($"Yaw: {currentYaw:F1}°");
+
+            // Altitude
+            GUILayout.Label($"Altitude: {transform.position.y:F1} m");
+
+            GUILayout.EndArea();
         }
 
         /// <summary>
@@ -52,9 +90,52 @@ namespace WindRises.Flight
             if (throttle != 0f)
             {
                 float acceleration = throttle > 0 ? planeData.acceleration : planeData.deceleration;
-                currentSpeed += acceleration * throttle * Time.fixedDeltaTime;
-                currentSpeed = Mathf.Clamp(currentSpeed, planeData.minSpeed, planeData.maxSpeed);
+                float speedDelta = acceleration * throttle * Time.fixedDeltaTime;
+
+                // Limiter uniquement la contribution du throttle, pas la vitesse totale
+                if (throttle > 0 && currentSpeed >= planeData.maxSpeed)
+                {
+                    // Si déjà au-dessus de maxSpeed (grâce à la gravité), ne pas accélérer davantage
+                    speedDelta = 0f;
+                }
+
+                currentSpeed += speedDelta;
             }
+        }
+
+        /// <summary>
+        /// Applique la gravité en fonction de l'inclinaison (pitch)
+        /// </summary>
+        private void HandleGravity()
+        {
+            // Calcul de l'inclinaison : dot product entre forward et up
+            // > 0 = montée, < 0 = descente, 0 = horizontal
+            float incline = Vector3.Dot(transform.forward, Vector3.up);
+
+            // Effet de gravité : ralentit en montée, accélère en descente
+            float gravityEffect = -incline * planeData.gravityInfluence * Time.fixedDeltaTime;
+            currentSpeed += gravityEffect;
+
+            // La gravité ne peut pas faire descendre sous minSpeed, mais peut dépasser maxSpeed
+            currentSpeed = Mathf.Max(currentSpeed, planeData.minSpeed);
+        }
+
+        /// <summary>
+        /// Applique le frottement de l'air (linear drag)
+        /// </summary>
+        private void HandleDrag()
+        {
+            // Ratio de vitesse par rapport à la vitesse max (clamped à 100%)
+            float speedRatio = Mathf.Min(currentSpeed / planeData.maxSpeed, 1f);
+
+            // Drag proportionnel à la vitesse
+            float dragForce = speedRatio * planeData.linearDrag * Time.fixedDeltaTime;
+
+            // Application du drag (ralentissement)
+            currentSpeed -= dragForce;
+
+            // Ne pas descendre sous minSpeed à cause du drag
+            currentSpeed = Mathf.Max(currentSpeed, planeData.minSpeed);
         }
 
         /// <summary>

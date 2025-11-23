@@ -36,5 +36,18 @@ namespace WindRises.Flight
 
         [Tooltip("Force de virage basée sur le roulis (plus élevé = virages plus serrés)")]
         public float rollTurnInfluence = 30f;
+
+        [Header("Physique")]
+        [Tooltip("Amortissement linéaire (frottement de l'air)")]
+        public float linearDrag = 0.5f;
+
+        [Tooltip("Influence de la gravité sur l'avion")]
+        public float gravityInfluence = 10f;
+
+        [Tooltip("Intensité des turbulences atmosphériques")]
+        public float turbulenceIntensity = 0f;
+
+        [Tooltip("Fréquence des turbulences (vitesse de changement)")]
+        public float turbulenceFrequency = 1f;
     }
 }

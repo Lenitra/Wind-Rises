@@ -1606,7 +1606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowCam
   target: {fileID: 954297270}
-  followDistance: 1
+  followDistance: -0.2
   followHeight: 0
   positionSmoothTime: 0.1
   rotationSmoothTime: 0.5
@@ -7404,7 +7404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1452181970
 MonoBehaviour:
   m_ObjectHideFlags: 0
