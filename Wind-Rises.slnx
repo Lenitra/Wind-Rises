@@ -1,10 +1,10 @@
 ﻿<Solution>
   <Project Path="OccaSoftware.Altos.Editor.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Pinwheel.Polaris.Runtime.csproj" />
   <Project Path="Pinwheel.Polaris.Editor.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
-  <Project Path="OccaSoftware.Altos.Runtime.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
+  <Project Path="OccaSoftware.Altos.Runtime.csproj" />
   <Project Path="OccaSoftware.Altos.Demo.csproj" />
   <Project Path="OccaSoftware.Altos.Shaders.csproj" />
   <Project Path="OccaSoftware.Altos.ShaderLibrary.csproj" />

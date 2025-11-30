@@ -17,6 +17,7 @@ namespace WindRises.Flight
         public Vector2 MoveInput { get; private set; }  // x = roulis, y = tangage
         public float Throttle { get; private set; }     // -1 à 1
         public float Yaw { get; private set; }          // -1 à 1
+        public bool RollbackRequested { get; private set; }  // True pendant 1 frame quand R est pressé
 
         void Update()
         {
@@ -39,6 +40,9 @@ namespace WindRises.Flight
 
             // Yaw (lacet) - Q / E
             Yaw = GetYawAxis();
+
+            // Rollback - R (détection de pression, pas de maintien)
+            RollbackRequested = GetRollbackInput();
         }
 
         float GetHorizontalAxis()
@@ -129,6 +133,25 @@ namespace WindRises.Flight
             }
 
             return Mathf.Abs(value) > deadzone ? value : 0f;
+        }
+
+        bool GetRollbackInput()
+        {
+            // Clavier - R pour rollback
+            if (Keyboard.current != null)
+            {
+                if (Keyboard.current.rKey.wasPressedThisFrame)
+                    return true;
+            }
+
+            // Gamepad - Bouton Y (Triangle sur PlayStation) pour rollback
+            if (Gamepad.current != null)
+            {
+                if (Gamepad.current.buttonNorth.wasPressedThisFrame)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

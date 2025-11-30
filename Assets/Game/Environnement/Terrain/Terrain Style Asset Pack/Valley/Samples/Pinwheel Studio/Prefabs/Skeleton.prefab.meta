@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 07f7697f653699d4fa9f38273c28deb9
+guid: 95e79a57550e97b42820798f462800be
 timeCreated: 1525774450
 licenseType: Store
 NativeFormatImporter:
@@ -7,10 +7,3 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 339980
-  packageName: Polaris Highland - Low Poly Terrain Tool
-  packageVersion: 1.0
-  assetPath: Assets/PinwheelStudio/Polaris/Valley/Samples/Pinwheel Studio/Prefabs/Skeleton.prefab
-  uploadId: 805610

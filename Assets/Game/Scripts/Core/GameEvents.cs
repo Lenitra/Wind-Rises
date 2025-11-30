@@ -3,21 +3,11 @@ using UnityEngine;
 namespace WindRises.Core
 {
     // === FLIGHT ===
-    public struct SpeedChanged
-    {
-        public float Speed;
-        public float MaxSpeed;
-    }
-
-    public struct AltitudeChanged
-    {
-        public float Altitude;
-    }
-
     public struct PositionUpdated
     {
         public Vector3 Position;
         public Quaternion Rotation;
+        public Vector3 mouvement;
     }
 
     // === GAMEPLAY ===

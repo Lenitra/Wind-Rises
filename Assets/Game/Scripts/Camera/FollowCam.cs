@@ -1,4 +1,5 @@
 using UnityEngine;
+using WindRises.Flight;
 
 namespace WindRises.Camera
 {
@@ -6,6 +7,7 @@ namespace WindRises.Camera
     /// Caméra de suivi fluide pour avion
     /// Suit directement le transform de l'avion sans EventBus pour éviter les saccades
     /// Utilise SmoothDamp pour un mouvement stable et prévisible
+    /// Gère spécialement le rollback avec interpolation fluide
     /// </summary>
     public class FollowCam : MonoBehaviour
     {
@@ -29,6 +31,14 @@ namespace WindRises.Camera
         [Range(0f, 0.5f)]
         public float rotationSmoothTime = 0.05f;
 
+        [Header("Rollback")]
+        [Tooltip("Temps de lissage de la caméra pendant un rollback (plus élevé = plus fluide)")]
+        [Range(0f, 1f)]
+        public float rollbackSmoothTime = 0.3f;
+
+        [Tooltip("Distance de recul de la caméra pendant le rollback")]
+        public float rollbackExtraDistance = 5f;
+
         [Header("Inclinaison")]
         [Tooltip("Intensité maximale de l'inclinaison de la caméra (0 = horizon fixe, 1 = suit complètement à 90°)")]
         [Range(0f, 1f)]
@@ -36,6 +46,21 @@ namespace WindRises.Camera
 
         // Variables internes pour SmoothDamp
         private Vector3 _positionVelocity;
+
+        // Référence au FlightRecorder pour détecter le rollback
+        private FlightRecorder _flightRecorder;
+
+        // Mode de suivi actuel
+        private bool _isInRollbackMode = false;
+
+        private void Awake()
+        {
+            // Récupérer le FlightRecorder si disponible
+            if (target != null)
+            {
+                _flightRecorder = target.GetComponent<FlightRecorder>();
+            }
+        }
 
         /// <summary>
         /// LateUpdate garantit que la caméra se met à jour après la physique de l'avion
@@ -46,8 +71,26 @@ namespace WindRises.Camera
             if (target == null)
                 return;
 
+            // Vérifier si on est en mode rollback
+            UpdateRollbackMode();
+
             UpdateCameraPosition();
             UpdateCameraRotation();
+        }
+
+        /// <summary>
+        /// Vérifie et met à jour l'état du mode rollback
+        /// </summary>
+        void UpdateRollbackMode()
+        {
+            if (_flightRecorder != null)
+            {
+                _isInRollbackMode = _flightRecorder.IsPlayingRollback;
+            }
+            else
+            {
+                _isInRollbackMode = false;
+            }
         }
 
         /// <summary>
@@ -55,18 +98,28 @@ namespace WindRises.Camera
         /// </summary>
         void UpdateCameraPosition()
         {
+            // Calculer la distance effective (augmentée pendant le rollback)
+            float effectiveDistance = followDistance;
+            if (_isInRollbackMode)
+            {
+                effectiveDistance += rollbackExtraDistance;
+            }
+
             // Calcul de la position cible dans l'espace local de l'avion
-            Vector3 offset = -target.forward * followDistance + target.up * followHeight;
+            Vector3 offset = -target.forward * effectiveDistance + target.up * followHeight;
             Vector3 targetPosition = target.position + offset;
 
+            // Temps de lissage adapté au mode
+            float effectiveSmoothTime = _isInRollbackMode ? rollbackSmoothTime : positionSmoothTime;
+
             // Application avec lissage (ou instantané si smoothTime = 0)
-            if (positionSmoothTime > 0.001f)
+            if (effectiveSmoothTime > 0.001f)
             {
                 transform.position = Vector3.SmoothDamp(
                     transform.position,
                     targetPosition,
                     ref _positionVelocity,
-                    positionSmoothTime
+                    effectiveSmoothTime
                 );
             }
             else
@@ -77,7 +130,7 @@ namespace WindRises.Camera
 
         /// <summary>
         /// Met à jour la rotation de la caméra pour regarder l'avion
-        /// Inclut l'effet d'inclinaison (banking) dans les virages
+        /// Utilise un simple LookAt pendant le rollback pour plus de stabilité
         /// </summary>
         void UpdateCameraRotation()
         {
@@ -88,6 +141,36 @@ namespace WindRises.Camera
             if (lookDirection.sqrMagnitude < 0.001f)
                 return;
 
+            if (_isInRollbackMode)
+            {
+                // Mode rollback : rotation simple et stable vers l'avion
+                UpdateRollbackRotation(lookDirection);
+            }
+            else
+            {
+                // Mode normal : rotation avec banking
+                UpdateNormalRotation(lookDirection);
+            }
+        }
+
+        /// <summary>
+        /// Rotation pendant le rollback : simple LookAt lissé sans banking
+        /// </summary>
+        void UpdateRollbackRotation(Vector3 lookDirection)
+        {
+            // Toujours utiliser Vector3.up pour un horizon stable
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection, Vector3.up);
+
+            // Lerp fluide vers la rotation cible
+            float t = 1f - Mathf.Exp(-Time.deltaTime / rollbackSmoothTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, t);
+        }
+
+        /// <summary>
+        /// Rotation en mode normal : avec banking et lissage standard
+        /// </summary>
+        void UpdateNormalRotation(Vector3 lookDirection)
+        {
             // Calcul du vecteur "up" pour l'inclinaison dans les virages
             Vector3 upVector = CalculateBankedUpVector(lookDirection);
 
@@ -173,8 +256,8 @@ namespace WindRises.Camera
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(target.position, 1f);
 
-            // Ligne caméra -> avion (cyan)
-            Gizmos.color = Color.cyan;
+            // Ligne caméra -> avion (cyan en mode normal, magenta en rollback)
+            Gizmos.color = _isInRollbackMode ? Color.magenta : Color.cyan;
             Gizmos.DrawLine(transform.position, target.position);
 
             // Direction de regard de la caméra (jaune)
@@ -187,10 +270,21 @@ namespace WindRises.Camera
             if (target == null)
                 return;
 
-            GUILayout.BeginArea(new Rect(Screen.width - 320, 10, 310, 120));
-            GUI.Box(new Rect(0, 0, 310, 120), "");
+            GUILayout.BeginArea(new Rect(Screen.width - 320, 10, 310, 150));
+            GUI.Box(new Rect(0, 0, 310, 150), "");
 
             GUILayout.Label("=== CAMERA DEBUG ===");
+
+            // Mode de la caméra
+            if (_isInRollbackMode)
+            {
+                GUILayout.Label("MODE: ROLLBACK (stabilisé)");
+            }
+            else
+            {
+                GUILayout.Label("MODE: Normal");
+            }
+
             GUILayout.Label($"Distance: {Vector3.Distance(transform.position, target.position):F1}m");
             GUILayout.Label($"Position Velocity: {_positionVelocity.magnitude:F2} m/s");
 
@@ -198,10 +292,13 @@ namespace WindRises.Camera
             float angle = Vector3.Angle(transform.forward, lookDir);
             GUILayout.Label($"Look Angle: {angle:F1}°");
 
-            float rollAngle = GetRollAngle(target.rotation);
-            float bankingFactor = Mathf.Sin(Mathf.Abs(rollAngle) * Mathf.Deg2Rad);
-            float bankAngle = rollAngle * bankingFactor * bankingIntensity;
-            GUILayout.Label($"Banking: {bankAngle:F1}° (roll: {rollAngle:F1}°, factor: {bankingFactor:F2})");
+            if (!_isInRollbackMode)
+            {
+                float rollAngle = GetRollAngle(target.rotation);
+                float bankingFactor = Mathf.Sin(Mathf.Abs(rollAngle) * Mathf.Deg2Rad);
+                float bankAngle = rollAngle * bankingFactor * bankingIntensity;
+                GUILayout.Label($"Banking: {bankAngle:F1}° (roll: {rollAngle:F1}°)");
+            }
 
             GUILayout.EndArea();
         }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 95cedf161cefbcf48ba21cabd6bb918b
+guid: 2325f7c1103b1754aab15040ed23c73c
 timeCreated: 1526371192
 licenseType: Store
 NativeFormatImporter:
@@ -7,10 +7,3 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 339980
-  packageName: Polaris Highland - Low Poly Terrain Tool
-  packageVersion: 1.0
-  assetPath: Assets/PinwheelStudio/Polaris/Valley/Samples/Pinwheel Studio/Prefabs/Snowman.prefab
-  uploadId: 805610

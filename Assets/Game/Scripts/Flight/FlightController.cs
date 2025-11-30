@@ -6,11 +6,15 @@ namespace WindRises.Flight
     /// Contrôleur de vol arcade basé sur un Rigidbody.
     /// Gère l'accélération, le pitch et le roll de l'avion.
     /// </summary>
-    [RequireComponent(typeof(Rigidbody), typeof(PlaneInput))]
+    [RequireComponent(typeof(Rigidbody), typeof(PlaneInput), typeof(FlightRecorder))]
     public class FlightController : MonoBehaviour
     {
         [Header("Configuration")]
         [SerializeField] private PlaneData planeData;
+
+        [Header("Rollback")]
+        [Tooltip("Nombre de secondes à remonter lors d'un rollback")]
+        [SerializeField] private float rollbackDuration = 5f;
 
         [Header("Debug")]
         [SerializeField] private bool showDebugInfo = true;
@@ -18,6 +22,7 @@ namespace WindRises.Flight
         // Components
         private Rigidbody rb;
         private PlaneInput input;
+        private FlightRecorder recorder;
 
         // État du vol
         private float currentSpeed;
@@ -26,6 +31,7 @@ namespace WindRises.Flight
         {
             rb = GetComponent<Rigidbody>();
             input = GetComponent<PlaneInput>();
+            recorder = GetComponent<FlightRecorder>();
 
             // Éliminer les saccades de caméra
             rb.interpolation = RigidbodyInterpolation.Interpolate;
@@ -35,8 +41,26 @@ namespace WindRises.Flight
             currentSpeed = planeData.minSpeed;
         }
 
+        private void Update()
+        {
+            // Vérifier l'input de rollback (doit être dans Update, pas FixedUpdate)
+            // Ne pas permettre de rollback si un rollback est déjà en cours
+            if (input.RollbackRequested && !recorder.IsPlayingRollback)
+            {
+                PerformRollback();
+            }
+        }
+
         private void FixedUpdate()
         {
+            // Ne pas contrôler l'avion pendant un rollback
+            if (recorder != null && recorder.IsPlayingRollback)
+            {
+                // Pendant le rollback, synchroniser la vitesse depuis la vélocité du rigidbody
+                currentSpeed = rb.linearVelocity.magnitude;
+                return;
+            }
+
             HandleSpeed();
             HandleGravity();
             HandleDrag();
@@ -49,8 +73,8 @@ namespace WindRises.Flight
             if (!showDebugInfo)
                 return;
 
-            GUILayout.BeginArea(new Rect(10, 10, 310, 150));
-            GUI.Box(new Rect(0, 0, 310, 150), "");
+            GUILayout.BeginArea(new Rect(10, 10, 310, 180));
+            GUI.Box(new Rect(0, 0, 310, 180), "");
 
             GUILayout.Label("=== FLIGHT DEBUG ===");
 
@@ -59,6 +83,11 @@ namespace WindRises.Flight
 
             // Throttle
             GUILayout.Label($"Throttle: {input.Throttle:F2}");
+
+            // Maniabilité
+            float speedRatio = Mathf.Clamp01((currentSpeed - planeData.minSpeed) / (planeData.maxSpeed - planeData.minSpeed));
+            float maneuverability = 1f - (speedRatio * planeData.speedManeuverabilityFactor);
+            GUILayout.Label($"Maneuverability: {maneuverability:P0}");
 
             // Roll
             float currentRoll = transform.eulerAngles.z;
@@ -145,11 +174,17 @@ namespace WindRises.Flight
         {
             Vector2 moveInput = input.MoveInput;
 
-            // Pitch local
-            float pitch = moveInput.y * planeData.pitchSpeed * Time.fixedDeltaTime;
+            // Calcul du facteur de maniabilité basé sur la vitesse
+            // À vitesse minimale : facteur = 1 (100% maniable)
+            // À vitesse maximale : facteur = 1 - speedManeuverabilityFactor
+            float speedRatio = Mathf.Clamp01((currentSpeed - planeData.minSpeed) / (planeData.maxSpeed - planeData.minSpeed));
+            float maneuverability = 1f - (speedRatio * planeData.speedManeuverabilityFactor);
 
-            // Roll local avec stabilisation automatique
-            float rollInput = -moveInput.x * planeData.rollSpeed * Time.fixedDeltaTime;
+            // Pitch local avec facteur de maniabilité
+            float pitch = moveInput.y * planeData.pitchSpeed * maneuverability * Time.fixedDeltaTime;
+
+            // Roll local avec stabilisation automatique et facteur de maniabilité
+            float rollInput = -moveInput.x * planeData.rollSpeed * maneuverability * Time.fixedDeltaTime;
 
             // Stabilisation du roll (retour automatique à l'horizontal)
             float currentRoll = transform.eulerAngles.z;
@@ -183,6 +218,29 @@ namespace WindRises.Flight
         private void ApplyMovement()
         {
             rb.linearVelocity = transform.forward * currentSpeed;
+        }
+
+        /// <summary>
+        /// Effectue un rollback animé de l'avion dans le temps
+        /// </summary>
+        private void PerformRollback()
+        {
+            if (recorder == null)
+            {
+                Debug.LogWarning("FlightRecorder non trouvé, impossible d'effectuer un rollback");
+                return;
+            }
+
+            if (recorder.RecordedStateCount == 0)
+            {
+                Debug.LogWarning("Aucun état enregistré, impossible d'effectuer un rollback");
+                return;
+            }
+
+            // Démarrer le rollback animé (la vitesse sera synchronisée automatiquement pendant l'animation)
+            recorder.RollbackSeconds(rollbackDuration);
+
+            Debug.Log($"Rollback animé démarré : retour {rollbackDuration}s en arrière");
         }
     }
 }

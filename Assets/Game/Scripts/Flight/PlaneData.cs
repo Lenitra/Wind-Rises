@@ -37,6 +37,11 @@ namespace WindRises.Flight
         [Tooltip("Force de virage basée sur le roulis (plus élevé = virages plus serrés)")]
         public float rollTurnInfluence = 30f;
 
+        [Header("Maniabilité")]
+        [Tooltip("Facteur de réduction de la maniabilité à vitesse max (0 = pas de réduction, 1 = réduction maximale)")]
+        [Range(0f, 1f)]
+        public float speedManeuverabilityFactor = 0.5f;
+
         [Header("Physique")]
         [Tooltip("Amortissement linéaire (frottement de l'air)")]
         public float linearDrag = 0.5f;

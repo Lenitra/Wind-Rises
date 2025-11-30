@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 74996c3da7ad92f428bb0e1f1f2da3df
+guid: 211f526cb77d8374bbc6e19a85dab44f
 timeCreated: 1526359717
 licenseType: Store
 NativeFormatImporter:
@@ -7,10 +7,3 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 339980
-  packageName: Polaris Highland - Low Poly Terrain Tool
-  packageVersion: 1.0
-  assetPath: Assets/PinwheelStudio/Polaris/Valley/Samples/Pinwheel Studio/Prefabs/WinterBranch.prefab
-  uploadId: 805610
