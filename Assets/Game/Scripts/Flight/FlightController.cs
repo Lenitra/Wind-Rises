@@ -175,8 +175,6 @@ namespace WindRises.Flight
             Vector2 moveInput = input.MoveInput;
 
             // Calcul du facteur de maniabilité basé sur la vitesse
-            // À vitesse minimale : facteur = 1 (100% maniable)
-            // À vitesse maximale : facteur = 1 - speedManeuverabilityFactor
             float speedRatio = Mathf.Clamp01((currentSpeed - planeData.minSpeed) / (planeData.maxSpeed - planeData.minSpeed));
             float maneuverability = 1f - (speedRatio * planeData.speedManeuverabilityFactor);
 
@@ -198,18 +196,20 @@ namespace WindRises.Flight
 
             float finalRoll = rollInput + rollCorrection;
 
-            // Rotation locale (pitch + roll)
+            // Yaw automatique basé sur le roll (virage réaliste)
+            // Plus l'avion est incliné, plus il tourne sur Y-world
+            float rollRad = currentRoll * Mathf.Deg2Rad;
+            float yawFromRoll = -Mathf.Sin(rollRad) * planeData.rollTurnInfluence * Time.fixedDeltaTime;
+
+            // Appliquer pitch et roll en local, yaw en world
+            // On décompose : d'abord rotation locale, puis on ajuste le yaw dans les euler angles
             Quaternion localRotation = Quaternion.Euler(pitch, 0f, finalRoll);
-            rb.MoveRotation(rb.rotation * localRotation);
+            Quaternion newRotation = rb.rotation * localRotation;
 
-            // Yaw automatique dans le référentiel MONDE basé sur l'angle de roll
-            // Facteur proportionnel : max à ±90°, min à 0° et 180°
-            float rollFactor = Mathf.Sin(Mathf.Abs(currentRoll) * Mathf.Deg2Rad);
-            float yawFromRoll = -(currentRoll / 90f) * rollFactor * planeData.rollTurnInfluence * Time.fixedDeltaTime;
-
-            // Rotation monde (yaw autour de l'axe Y global)
-            Quaternion worldYawRotation = Quaternion.AngleAxis(yawFromRoll, Vector3.up);
-            rb.MoveRotation(worldYawRotation * rb.rotation);
+            // Extraire les angles, ajouter le yaw world, reconstruire
+            Vector3 euler = newRotation.eulerAngles;
+            euler.y += yawFromRoll;
+            rb.MoveRotation(Quaternion.Euler(euler));
         }
 
         /// <summary>
