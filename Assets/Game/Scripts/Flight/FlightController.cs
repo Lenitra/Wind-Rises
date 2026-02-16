@@ -26,6 +26,7 @@ namespace WindRises.Flight
 
         // État du vol
         private float currentSpeed;
+        private bool wasPlayingRollback;
 
         private void Awake()
         {
@@ -53,12 +54,18 @@ namespace WindRises.Flight
 
         private void FixedUpdate()
         {
-            // Ne pas contrôler l'avion pendant un rollback
+            // Ne pas contrôler l'avion pendant un rollback (le Rigidbody est kinematic)
             if (recorder != null && recorder.IsPlayingRollback)
             {
-                // Pendant le rollback, synchroniser la vitesse depuis la vélocité du rigidbody
-                currentSpeed = rb.linearVelocity.magnitude;
+                wasPlayingRollback = true;
                 return;
+            }
+
+            // Synchroniser la vitesse depuis le Rigidbody après la fin du rollback
+            if (wasPlayingRollback)
+            {
+                wasPlayingRollback = false;
+                currentSpeed = rb.linearVelocity.magnitude;
             }
 
             HandleSpeed();
