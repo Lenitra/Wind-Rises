@@ -10,6 +10,9 @@ namespace WindRises.Flight
     public class PlaneInput : MonoBehaviour
     {
         [Header("Input Settings")]
+        [Tooltip("Configuration de l'avion (vitesses, inertie, etc.)")]
+        [SerializeField] private PlaneData planeData;
+
         [SerializeField] private bool invertYAxis = false;
         [SerializeField] private float deadzone = 0.1f;
 
@@ -19,6 +22,18 @@ namespace WindRises.Flight
         public float Yaw { get; private set; }          // -1 à 1
         public bool RollbackRequested { get; private set; }  // True pendant 1 frame quand R est pressé
 
+        // Valeurs lissées progressivement (pour inertie)
+        private Vector2 currentMoveInput;
+        private float currentThrottle;
+
+        void Awake()
+        {
+            if (planeData == null)
+            {
+                Debug.LogWarning("PlaneInput: PlaneData not assigned! Input inertia will be disabled. Please assign PlaneData in the Inspector.");
+            }
+        }
+
         void Update()
         {
             ReadInput();
@@ -26,22 +41,38 @@ namespace WindRises.Flight
 
         void ReadInput()
         {
-            // Pitch (tangage) et Roll (roulis) - WASD ou Flèches
-            float pitch = GetVerticalAxis();
-            float roll = GetHorizontalAxis();
+            // Lire les inputs cibles (instantanés)
+            float targetPitch = GetVerticalAxis();
+            float targetRoll = GetHorizontalAxis();
 
             if (invertYAxis)
-                pitch = -pitch;
+                targetPitch = -targetPitch;
 
-            MoveInput = new Vector2(roll, pitch);
+            Vector2 targetMoveInput = new Vector2(targetRoll, targetPitch);
+            float targetThrottle = GetThrottleAxis();
 
-            // Throttle (gaz) - Espace / Shift OU gâchettes R2/L2
-            Throttle = GetThrottleAxis();
+            // Appliquer l'inertie (lissage progressif)
+            if (planeData != null && planeData.inputSmoothTime > 0f)
+            {
+                float smoothSpeed = 1f / planeData.inputSmoothTime;
+                float t = Mathf.Clamp01(smoothSpeed * Time.deltaTime);
 
-            // Yaw (lacet) - Q / E
+                currentMoveInput = Vector2.Lerp(currentMoveInput, targetMoveInput, t);
+                currentThrottle = Mathf.Lerp(currentThrottle, targetThrottle, t);
+            }
+            else
+            {
+                // Pas d'inertie (comportement original)
+                currentMoveInput = targetMoveInput;
+                currentThrottle = targetThrottle;
+            }
+
+            // Assigner aux propriétés publiques
+            MoveInput = currentMoveInput;
+            Throttle = currentThrottle;
+
+            // Yaw et Rollback restent instantanés (pas d'inertie nécessaire)
             Yaw = GetYawAxis();
-
-            // Rollback - R (détection de pression, pas de maintien)
             RollbackRequested = GetRollbackInput();
         }
 

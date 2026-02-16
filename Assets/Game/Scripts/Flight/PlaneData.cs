@@ -30,6 +30,11 @@ namespace WindRises.Flight
         [Tooltip("Vitesse de rotation en roulis (roll) - degrés/s")]
         public float rollSpeed = 120f;
 
+        [Header("Input Response")]
+        [Tooltip("Temps de réponse des contrôles (0 = instantané, 0.1 = léger, 0.2 = lourd)")]
+        [Range(0f, 0.5f)]
+        public float inputSmoothTime = 0.1f;
+
         [Header("Stabilisation")]
         [Tooltip("Force de stabilisation automatique du roulis")]
         public float rollStabilizationForce = 0.5f;
